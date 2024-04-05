@@ -32,7 +32,8 @@ export function CartSheet() {
   const cart = useContext(CartContext);
   const eventsCount = cart.items.length;
   const { itemAdded, resetItemAdded } = useContext(CartContext);
-  const sheetTriggerRef = useRef(null);
+  const sheetTriggerRef = useRef<HTMLButtonElement>(null);
+
 
   useEffect(() => {
     if (itemAdded) {
@@ -93,7 +94,7 @@ export function CartSheet() {
      };
 
     // Add the table to the PDF
-    doc.autoTable(tableColumn, tableBody, options);
+    (doc as any).autoTable(tableColumn, tableBody, options);
   
     // Save the PDF
     doc.save('selected-events.pdf');
