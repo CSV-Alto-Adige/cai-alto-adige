@@ -39,7 +39,7 @@ export default function AttivitaPage({params: {id}}: Props) {
   };
 
   return (
-    <div className="bg-white min-h-[90vh] flex items-center">
+    <div className="bg-white min-h-[90vh] flex items-center mt-12 lg:mt-0">
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
         {/* Event details and image */}
         <div className="lg:max-w-lg lg:self-end">
