@@ -6,9 +6,9 @@ import { format } from "date-fns"
 import { it } from 'date-fns/locale';
 import AddToCartButton from '@/components/AddToCartButton';
 
-async function getPage(slug: any) {
+async function getPage(id: any) {
 	try {
-		const page = await directus.request(readItem('activities', slug, {	fields: ['*', { image: ['filename_disk']}],}));
+		const page = await directus.request(readItem('activities', id, {	fields: ['*', { image: ['filename_disk']}],}));
 		return page;
 	} catch (error) {
 		notFound();
@@ -16,8 +16,7 @@ async function getPage(slug: any) {
 }
 
 export default async function DynamicPage({ params }: any) {
-	const event = await getPage(params.slug);
-  console.log(event)
+	const event = await getPage(params.id);
   const gridColumns = event.Immagine ? 'lg:grid-cols-2' : 'lg:grid-cols-1';
 
   const renderParagraph = (label: any, value: any) => {

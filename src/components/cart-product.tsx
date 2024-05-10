@@ -21,6 +21,8 @@ export default function CartEvent(props: CartProductProps) {
     const id = props.id
     const event = getEventData(id);
 
+    console.log(props)
+
     function getEventData(id: string) {
       let eventData = events.find((event: any) => event.id === id);
       if (eventData == undefined) {

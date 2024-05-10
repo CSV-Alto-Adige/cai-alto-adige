@@ -8,7 +8,7 @@ import { Button } from '@nextui-org/react';
 const AddToCartButtonTable = ({event}: any) => {
     const cart = useContext(CartContext);
     const addToCartHandler = () => {
-        if (event?.id) {
+        if (event.id) {
           cart.addOneToCart(event.id);
         }
       };

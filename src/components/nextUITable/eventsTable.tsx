@@ -623,7 +623,7 @@ export default function EventsTable2 ({activities}: any) {
                         <div className="flex gap-2 items-center">
                             <Avatar alt={organizerSection.name} className="flex-shrink-0" size="sm" src={organizerSection.avatar} />
                             <div className="flex flex-col">
-                            <span className="text-small">{organizerSection.name}</span>
+                            <span className="text-small capitalize">{organizerSection.name}</span>
                             </div>
                         </div>
                         </SelectItem>

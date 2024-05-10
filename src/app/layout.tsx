@@ -20,6 +20,7 @@ export const metadata: Metadata = {
 async function getEvents() {
 	return directus.request(
 		readItems('activities', {
+      limit: 2000,
 		})
 	);
 }

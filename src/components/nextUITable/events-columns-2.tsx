@@ -144,6 +144,8 @@ export const renderCell = (events: Event, columnKey: React.Key) => {
   switch (columnKey) {
       case 'Data_inizio':
         return <span>{formatDateSafe(cellValue)}</span>;
+        case 'Sezione':
+        return <span className="capitalize">{cellValue}</span>;
       case 'Data_fine':
         return <span>{formatDateSafe(cellValue)}</span>;
       case 'Iscrizioni_dal':
