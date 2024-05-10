@@ -23,8 +23,8 @@ export const ResetProvider: React.FC<ResetProviderProps> = ({ children }) => {
 
   const triggerReset = () => {
     setShouldReset(true);
-    // Optionally, set a timeout to turn it back off after all components have reset
-    setTimeout(() => setShouldReset(false), 1);
+    // Provide a longer timeout to give components enough time to reset
+    setTimeout(() => setShouldReset(false), 100); // 100ms should be enough
   };
 
   return (

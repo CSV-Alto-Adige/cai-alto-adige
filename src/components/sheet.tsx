@@ -16,24 +16,22 @@ import {
 import { CartContext } from "@/store/cart-context"
 import CartEvent from "./cart-product";
 import jsPDF from "jspdf";
-import { events } from './nextUITable/events-table';
 
-function getEventData(id: string) {
-  let eventData = events.find(event => event.id === id);
-  if (eventData == undefined) {
-      return undefined;
-  }
-  return eventData;
-}
-
-
-export function CartSheet() {
+export function CartSheet({events}: any) {
   const [open, setOpen] = useState(false);
   const cart = useContext(CartContext);
   const eventsCount = cart.items.length;
   const { itemAdded, resetItemAdded } = useContext(CartContext);
   const sheetTriggerRef = useRef<HTMLButtonElement>(null);
 
+  function getEventData(id: string) {
+    let eventData = events.find((event: any) => event.id === id);
+    if (eventData == undefined) {
+        return undefined;
+    }
+    return eventData;
+  }
+  
 
   useEffect(() => {
     if (itemAdded) {
@@ -124,7 +122,7 @@ export function CartSheet() {
                 <>
                     {cart.items.map( (currentEvent, idx) => (
                         <div key={idx} id={`cart-item-${currentEvent.id}`}>
-                            <CartEvent id={currentEvent.id} open={open} setOpen={setOpen}/>
+                            <CartEvent events={events} id={currentEvent.id} open={open} setOpen={setOpen}/>
                         </div>
                     ))}
                 </>

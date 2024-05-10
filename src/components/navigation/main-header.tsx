@@ -16,7 +16,7 @@ const navigation = {
   ],
 }
 
-export default function MainHeader() {
+export default function MainHeader( { events } : any) {
 
   const { scrollY } = useScroll();
   const [ hidden, setHidden ] = useState(false);
@@ -57,7 +57,7 @@ export default function MainHeader() {
           ))}
         </nav>
         </div>
-        <CartSheet/>
+        <CartSheet events={events}/>
       </nav>
     </motion.header>
   )
