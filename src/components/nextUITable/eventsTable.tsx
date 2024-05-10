@@ -48,6 +48,7 @@ import CategorySlider from "../category-slider";
 import { useReset } from '@/store/reset-context';
 import { CartContext } from '@/store/cart-context'; 
 import ClientSideRouter from "../ClientSideRouter";
+import AddToCartButtonTable from "../AddToCartButtonTable";
 
 interface OrganizerSection {
   id: number;
@@ -569,20 +570,7 @@ export default function EventsTable2 ({activities}: any) {
                   Leggi
                 </Button>
               </ClientSideRouter>
-              <Button 
-                color="primary" 
-                variant="ghost"
-                size="sm" 
-                startContent={<Heart className="h-4 w-4"/>} 
-                className="mx-4 my-2 w-full text-xs"
-                onClick={() => {
-                  cart.addOneToCart(event.id);
-                  setSelectedKeys(prev => new Set(prev).add(event.id));
-                }}
-                isDisabled={cart.items.some(item => item.id === (event.id as any))}
-              >
-                Aggiungi
-              </Button>
+              <AddToCartButtonTable event={event}/>
             </CardFooter>
           </Card>
           ))}
