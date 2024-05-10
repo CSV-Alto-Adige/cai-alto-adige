@@ -1,3 +1,5 @@
+// https://cai-alto-adige.vercel.app/api/revalidate?path=/&secret=VGot3cLp4QlQE7X
+
 import { NextRequest, NextResponse } from 'next/server'
 import { revalidatePath } from 'next/cache'
 
