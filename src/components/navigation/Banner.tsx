@@ -34,8 +34,6 @@ const Banner = ({ announcements }: any) => {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
             </Carousel>
   )
 }
