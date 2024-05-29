@@ -1,4 +1,5 @@
 import directus from '@/lib/directus';
+import { readItems } from "@directus/sdk";
 import { notFound } from 'next/navigation';
 import { readItem } from '@directus/sdk';
 import Image from 'next/image';
@@ -6,18 +7,26 @@ import { format } from "date-fns"
 import { it } from 'date-fns/locale';
 import AddToCartButton from '@/components/AddToCartButton';
 
-async function getPage(id: any) {
-	try {
-		const page = await directus.request(readItem('activities', id, {	fields: ['*', { image: ['filename_disk']}],}));
-		return page;
-	} catch (error) {
-		notFound();
-	}
+
+async function getEvent(slug: string) {
+	return directus.request(
+		readItems('activities', {
+      filter: {
+        slug: {
+          _eq: slug
+        }
+      },
+      fields: ['*', 
+        { image: ['filename_disk'] }
+      ],
+		})
+	);
 }
 
+
 export default async function DynamicPage({ params }: any) {
-	const event = await getPage(params.id);
-  const gridColumns = event.Immagine ? 'lg:grid-cols-2' : 'lg:grid-cols-1';
+	const events = await getEvent(params.slug);
+  const event = events[0];
 
   const renderParagraph = (label: any, value: any) => {
     if (!value) return null; // Skip if value is undefined, null, or an empty string
@@ -32,7 +41,7 @@ export default async function DynamicPage({ params }: any) {
 
 	return (
     <div className="bg-white min-h-[90vh] flex items-center mt-12 lg:mt-12">
-      <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-24 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+      <div className="mx-auto w-3/4 px-4 py-16 sm:px-6 sm:py-24 lg:grid lg:grid-cols-2 lg:gap-x-12 lg:px-8">
         {/* Event details and image */}
         <div className="lg:max-w-lg lg:self-end">
           <div className="mt-4">

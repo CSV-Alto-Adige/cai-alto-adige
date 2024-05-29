@@ -503,7 +503,7 @@ export default function EventsTable2 ({activities}: any) {
             </TableHeader>
             <TableBody emptyContent={"Nessuna attività"} items={sortedItems}>
                 {(item) => (
-                <TableRow key={item.id} onClick={() => router.push(`/attivita/${item.id}`)}>
+                <TableRow key={item.id} onClick={() => router.push(`/attivita/${item.slug}`)}>
                     {(columnKey) => <TableCell>{renderCell(item as any, columnKey)}</TableCell>}
                 </TableRow>
                 )}
