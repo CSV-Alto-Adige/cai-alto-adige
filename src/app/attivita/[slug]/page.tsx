@@ -90,6 +90,7 @@ export default async function DynamicPage({ params }: any) {
                 {event.Iscrizioni_dal ? (
                    <p className="text-base text-gray-500"><span className="text-gray-900 font-semibold mr-4">Iscrizioni dal:</span>{format(event.Iscrizioni_dal, "dd/LL/y", { locale: it })}</p>
                   ) : "" }
+                {renderParagraph("Contatto di riferimento:", event.Contatto_riferimento)}
                 {event.Locandina ? (
                    <a href={`${directus.url}assets/${event.Locandina}`} target="_blank" rel="noopener noreferrer" className="text-base text-gray-900 font-semibold">Locandina</a>
                   ) : "" }

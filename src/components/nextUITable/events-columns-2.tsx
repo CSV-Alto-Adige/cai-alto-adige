@@ -27,7 +27,8 @@ export type Event = {
     Regione_Provincia: string,
     Zona: string,
     Durata_in_ore: string,
-    Difficolta: string
+    Difficolta: string,
+    Contatto_riferimento: string
   };
 
 export const columns = [
@@ -104,6 +105,10 @@ export const columns = [
     {
       uid: "Mezzo_di_trasporto",
       name: "Mezzo di trasporto",
+    },
+    {
+      uid: "Contatto_riferimento",
+      name: "Contatto di riferimento",
     },
     {
       uid: "Locandina",
