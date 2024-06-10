@@ -26,12 +26,16 @@ async function getEvents() {
 }
 
 async function getAnnouncements() {
-	return directus.request(
-		readItems('announcements', {
-		})
-	);
+  return directus.request(
+      readItems('announcements', {
+    filter: {
+      status: {
+        _eq: 'published'
+      },
+    },
+    })
+  );
 }
-
 
 export default async function RootLayout({
   children,

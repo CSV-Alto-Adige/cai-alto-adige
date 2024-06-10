@@ -15,7 +15,7 @@ const Banner = ({ announcements }: any) => {
     <Carousel className="py-4 bg-[#0e4d71] relative z-50"
     plugins={[
         Autoplay({
-          delay: 3000,
+          delay: 2000,
         }),
       ]}
       opts={{
@@ -26,7 +26,7 @@ const Banner = ({ announcements }: any) => {
               <CarouselContent>
                 {announcements.map((announcement: any) => (
                     <CarouselItem key={announcement.id}>
-                    <ClientSideRouter route={`/news/${announcement.id}`}>
+                    <ClientSideRouter route={`/news/${announcement.slug}`}>
                       <div className="">
                         <h3 className="text-white text-center md:text-xl px-4">{announcement.title}</h3>
                       </div>

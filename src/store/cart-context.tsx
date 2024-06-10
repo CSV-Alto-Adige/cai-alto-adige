@@ -52,7 +52,7 @@ export function CartProvider({ children }: CartProviderProps) {
     window.localStorage.setItem('EVENTCART_CAI', JSON.stringify(cart));
   }, [cart]);
 
-  const addOneToCart = (id: string) => {
+  const addOneToCart = useCallback((id: string) => {
     if (!cart.items.some(item => item.id === id)) {
       setCart(prevCart => ({
         ...prevCart,
@@ -60,9 +60,9 @@ export function CartProvider({ children }: CartProviderProps) {
       }));
       setItemAdded(true);
     }
-  };
+  }, [cart.items]);
 
-  const resetItemAdded = () => setItemAdded(false);
+  const resetItemAdded = useCallback(() => setItemAdded(false), []);
 
   const subscribeToDeletion = useCallback((callback: (id: string) => void) => {
     deletionSubscribers.current.add(callback);

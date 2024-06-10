@@ -1,4 +1,5 @@
 import { Mail, Phone } from "lucide-react"  
+import Link from "next/link"
   
   export default function Footer() {
     return (
@@ -11,15 +12,19 @@ import { Mail, Phone } from "lucide-react"
             <div className="flex flex-col md:flex-row gap-x-6 items-center justify-center text-center lg:text-left">
                 <div className="flex items-center gap-x-1">
                     <p className="mt-8 leading-5 text-white md:mt-0 font-thin">Tel:</p>
-                    <p className="mt-8 leading-5 text-white md:mt-0">0471.402.144</p>
+                    <Link href="tel:0471402144" className="mt-8 leading-5 text-white md:mt-0">
+                      0471.402.144
+                    </Link>
                 </div>
                 <div className="flex items-center gap-x-1">
                     <p className="mt-8 leading-5 text-white md:mt-0 font-thin">Mail:</p>
-                    <p className="mt-8 leading-5 text-white md:mt-0">segreteria@caialtoadige.it</p>
+                    <Link href="mailto:segreteria@caialtoadige.it" className="mt-8 leading-5 text-white md:mt-0">
+                      segreteria@caialtoadige.it
+                    </Link>
                 </div>
-                <p className="mt-8 leading-5 text-white md:mt-0">
-                   <span className="font-thin">Sede: </span>Viale Europa 53/F - 39100 - Bolzano (BZ)
-                </p>
+                <Link href="https://www.cai.it/privacy-policy/" className="mt-8 leading-5 text-white md:mt-0">
+                  Privacy Policy
+                </Link>
             </div>
             <p className="mt-8 leading-5 text-white md:mt-0 font-thin text-center text-sm lg:text-left lg:text-base">
               &copy; 2024 CAI -  <span className=""> GRUPPO REGIONALE ALTO ADIGE</span>

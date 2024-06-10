@@ -11,6 +11,10 @@ import ClientSideRouter from "../ClientSideRouter";
 
 const navigation = {
   main: [
+    { name: 'Attività', href: 'https://attivita.caialtoadige.it/' },
+    { name: 'Annunci', href: 'https://attivita.caialtoadige.it/annunci' },
+    { name: 'Link Utili', href: 'https://attivita.caialtoadige.it/link-utili' },
+    { name: 'Rifugi CAI', href: 'https://www.cai.it/gruppo_regionale/gp-alto-adige/organi-tecnici-territoriali-operativi/rifugi/' },
     { name: 'Chi siamo', href: 'https://www.cai.it/gruppo_regionale/gp-alto-adige' },
     { name: 'Contatti', href: 'https://www.cai.it/gruppo_regionale/gp-alto-adige/chi-siamo/' },
   ],

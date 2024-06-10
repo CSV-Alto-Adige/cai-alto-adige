@@ -1,11 +1,11 @@
 import directus from '@/lib/directus';
 import { readItems } from "@directus/sdk";
-import { notFound } from 'next/navigation';
-import { readItem } from '@directus/sdk';
 import Image from 'next/image';
 import { format } from "date-fns"
 import { it } from 'date-fns/locale';
 import AddToCartButton from '@/components/AddToCartButton';
+import { Link, Button } from "@nextui-org/react";
+import { notFound } from 'next/navigation';
 
 
 async function getEvent(slug: string) {
@@ -27,6 +27,10 @@ async function getEvent(slug: string) {
 export default async function DynamicPage({ params }: any) {
 	const events = await getEvent(params.slug);
   const event = events[0];
+
+  if (!event) {
+    notFound();
+  }
 
   const renderParagraph = (label: any, value: any) => {
     if (!value) return null; // Skip if value is undefined, null, or an empty string
@@ -90,13 +94,11 @@ export default async function DynamicPage({ params }: any) {
                 {event.Iscrizioni_dal ? (
                    <p className="text-base text-gray-500"><span className="text-gray-900 font-semibold mr-4">Iscrizioni dal:</span>{format(event.Iscrizioni_dal, "dd/LL/y", { locale: it })}</p>
                   ) : "" }
-                {renderParagraph("Contatto di riferimento:", event.Contatto_riferimento)}
-                {event.Locandina ? (
-                   <a href={`${directus.url}assets/${event.Locandina}`} target="_blank" rel="noopener noreferrer" className="text-base text-gray-900 font-semibold">Locandina</a>
-                  ) : "" }
-                  {event.Tracciato_GPX ? (
-                  <a href={`${directus.url}assets/${event.Tracciato_GPX}`} target="_blank" rel="noopener noreferrer" className="text-base text-gray-900 font-semibold">Tracciato GPX</a>
-                  ) : "" }
+                {event.Contatto_riferimento ? (
+                  <>
+                 <p className='text-gray-900 font-semibold'>Note:</p><div dangerouslySetInnerHTML={{ __html:event.Contatto_riferimento }}></div>
+                 </>
+                ) : "" }
                 {event.Note ? (
                   <>
                  <p className='text-gray-900 font-semibold'>Note:</p><div dangerouslySetInnerHTML={{ __html: event.Note }}></div>
@@ -115,6 +117,30 @@ export default async function DynamicPage({ params }: any) {
           </div>
         </div>
         <div className="mt-10 lg:col-start-1 lg:row-start-2 lg:max-w-lg lg:self-start">
+              {event.Locandina ? (
+                <Button
+                href={`${directus.url}assets/${event.Locandina}`}
+                as={Link}
+                color="primary"
+                showAnchorIcon
+                variant="ghost"
+                className='w-full mb-4'
+              >
+                Locandina
+              </Button>
+              ) : "" }
+              {event.Tracciato_GPX ? (
+                 <Button
+                 href={`${directus.url}assets/${event.Tracciato_GPX}`}
+                 as={Link}
+                 color="primary"
+                 showAnchorIcon
+                 variant="ghost"
+                 className='w-full mb-4'
+               >
+                 Tracciato GPX
+               </Button>
+              ) : "" }
               <AddToCartButton event={event}/>
         </div>
       </div>
