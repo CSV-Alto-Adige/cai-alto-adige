@@ -12,6 +12,7 @@ import Link from "next/link";
             _eq: 'published'
           },
         },
+        sort: [ "-date_created" ],
         limit: 2000,
         })
       );

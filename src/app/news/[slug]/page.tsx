@@ -12,7 +12,7 @@ async function getPost(slug: string) {
           _eq: slug
         }
       },
-      fields: ['*',],
+      fields: ['*',]
 		})
 	);
 }
