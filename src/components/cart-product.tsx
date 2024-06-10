@@ -95,7 +95,7 @@ export default function CartEvent(props: CartProductProps) {
             Elimina dai favoriti
           </Button>
           <Button
-              href={`http://localhost:3000/attivita/${event.slug}`}
+              href={`https://attivita.caialtoadige.it/attivita/${event.slug}`}
               as={Link}
               color="primary"
               variant="solid"
