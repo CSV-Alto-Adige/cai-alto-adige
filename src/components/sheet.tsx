@@ -16,6 +16,8 @@ import {
 import { CartContext } from "@/store/cart-context"
 import CartEvent from "./cart-product";
 import jsPDF from "jspdf";
+import { PrintableEventList } from "./print/PrintableEventList";
+import { useReactToPrint } from "react-to-print";
 
 export function CartSheet({events}: any) {
   const [open, setOpen] = useState(false);
@@ -41,63 +43,6 @@ export function CartSheet({events}: any) {
   }, [itemAdded, resetItemAdded]);
 
 
-  const handleExportPDF = () => {
-    const doc = new jsPDF({
-      orientation: 'landscape',
-      unit: 'mm',
-      format: 'A4'
-    });
-  
-    const imageUrl = 'http://localhost:3000/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fcai_logo.f811fe26.png&w=256&q=75'; // Update with your image path
-    // doc.addImage(imageUrl, 'PNG', 10, 10, 40, 20); // Adjust dimensions and position as needed
-  
-    const tableBody = cart.items.map(item => {
-      const eventData = getEventData(item.id);
-      
-      return [
-        eventData?.activity,
-        eventData?.organizerSection,
-        eventData?.startDate,
-        eventData?.location,
-        eventData?.difficulty,
-        eventData?.targetGroup,
-        eventData?.activityType,
-        eventData?.estimatedHours,
-        eventData?.contactPhone,
-      ];
-    });
-  
-    // Column titles
-    const tableColumn = ["Attività", "Sezione", "Data inizio", "Località", "Difficoltà", "Gruppo Target", "Tipo di attività", "Ore stimate", "Telefono"];
-  
-     // Customizing the header style
-     const title = "CAI Alto Adige - Elenco delle tue attività";
-     const titleSize = 16; // Font size for the title
-     const titleX = 150; // The X coordinate (the middle of an A4 page in landscape, which is 210mm wide)
-     const titleY = 20; // The Y coordinate (top margin)
-   
-     // Adding the title to the document
-     doc.setFontSize(titleSize);
-     doc.text(title, titleX, titleY, { align: 'center' });
-   
-     // Since we've added a title at the top, adjust the startY position for the table accordingly
-     const options = {
-       startY: 30, // Adjust this value as needed to place the table below your title
-       headStyles: {
-         fillColor: [14, 77, 113], // Custom color for header background
-         textColor: 255, // White text color
-         fontStyle: 'bold' // Bold text in headers
-       },
-       // Other options for autoTable...
-     };
-
-    // Add the table to the PDF
-    (doc as any).autoTable(tableColumn, tableBody, options);
-  
-    // Save the PDF
-    doc.save('selected-events.pdf');
-  };
-  
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -132,7 +77,7 @@ export function CartSheet({events}: any) {
           </div>
         <SheetFooter className="">
           <SheetClose asChild>
-            <Button type="submit" className="bg-[#0E4D71] w-full mx-auto" onClick={handleExportPDF}>Esporta PDF</Button>
+            <PrintableEventList events={cart.items.map(item => getEventData(item.id))}/>
           </SheetClose>
         </SheetFooter>
       </SheetContent>

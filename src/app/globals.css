@@ -96,3 +96,7 @@
   transition-timing-function: cubic-bezier(.4,0,.2,1);
   cursor: pointer;
 }
+
+.printable-event {
+  page-break-after: always;
+}
