@@ -2,21 +2,23 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from 'next/link';
+import { Mountain, Megaphone, Link2, Home, HelpCircle, PinIcon } from "lucide-react";
 import { CartSheet } from '../sheet';
 import CAILogo from '@/assets/cai_logo.png'
 import { motion, useScroll, useMotionValue, useMotionValueEvent } from "framer-motion";
 import ClientSideRouter from "../ClientSideRouter";
+import { MobileNav } from "./MobileNavbar";
 
 
 
 const navigation = {
   main: [
-    { name: 'Attività', href: 'https://attivita.caialtoadige.it/' },
-    { name: 'Annunci', href: 'https://attivita.caialtoadige.it/annunci' },
-    { name: 'Link Utili', href: 'https://attivita.caialtoadige.it/link-utili' },
-    { name: 'Rifugi CAI', href: 'https://www.cai.it/gruppo_regionale/gp-alto-adige/organi-tecnici-territoriali-operativi/rifugi/' },
-    { name: 'Chi siamo', href: 'https://www.cai.it/gruppo_regionale/gp-alto-adige' },
-    { name: 'Contatti', href: 'https://www.cai.it/gruppo_regionale/gp-alto-adige/chi-siamo/' },
+    { name: 'Attività', href: 'https://attivita.caialtoadige.it/', icon: Mountain },
+    { name: 'Annunci', href: 'https://attivita.caialtoadige.it/annunci', icon: Megaphone },
+    { name: 'Link Utili', href: 'https://attivita.caialtoadige.it/link-utili', icon: Link2 },
+    { name: 'Rifugi CAI', href: 'https://www.cai.it/gruppo_regionale/gp-alto-adige/organi-tecnici-territoriali-operativi/rifugi/', icon: Home },
+    { name: 'Chi siamo', href: 'https://www.cai.it/gruppo_regionale/gp-alto-adige', icon: HelpCircle },
+    { name: 'Contatti', href: 'https://www.cai.it/gruppo_regionale/gp-alto-adige/chi-siamo/', icon: PinIcon },
   ],
 }
 
@@ -55,13 +57,16 @@ export default function MainHeader( { events } : any) {
           </ClientSideRouter>
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center">
-        <nav className="columns-2 sm:flex sm:justify-center sm:space-x-6" aria-label="Menu">
-          {navigation.main.map((item) => (
-            <Link key={item.name} href={item.href} className="leading-6 text-zinc-800">{item.name}</Link>
-          ))}
-        </nav>
+          <nav className="hidden columns-2 xl:flex sm:justify-center sm:space-x-6" aria-label="Menu">
+            {navigation.main.map((item) => (
+              <Link key={item.name} href={item.href} className="leading-6 text-zinc-800">{item.name}</Link>
+            ))}
+          </nav>
         </div>
-        <CartSheet events={events}/>
+        <div className="flex gap-x-4">
+          <CartSheet events={events}/>
+          <MobileNav navigation={navigation}/>
+        </div>
       </nav>
     </motion.header>
   )

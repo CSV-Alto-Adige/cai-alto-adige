@@ -5,7 +5,7 @@ export default function Hero() {
     return (
         <div className="w-full min-h-[500px] lg:min-h-[600px] relative isolate overflow-hidden bg-gray-900 pt-12 shadow-xl">
           <div className="absolute inset-0">
-            <Image src={HeroImage} alt="Altopiano di Sennes" layout="fill" objectFit="cover" />
+            <Image src={HeroImage} alt="Altopiano di Sennes" fill className="object-cover" />
           </div>
           <div className="container px-0 absolute bottom-24 z-10 left-1/2 -translate-x-1/2">
             <h1 className="hidden lg:block text-5xl lg:text-7xl font-semibold max-w-4xl">

@@ -31,7 +31,7 @@ export const PrintableEventList = ({ events }: any) => {
   return (
     <>
       <div ref={contentToPrint} className="hidden print:block">
-        {events.map((event: any) => (
+        {events?.map((event: any) => (
           <div key={event.id} className="bg-white flex items-center my-12 printable-event">
             <div className='bg-[#0E4D71] py-4 h-4 w-full fixed top-0'></div>
             <div className="mx-auto w-3/4 px-4 py-16 sm:px-6 sm:py-24 lg:grid lg:grid-cols-2 lg:gap-x-12 lg:px-8">
