@@ -35,7 +35,7 @@ export default function MainHeader( { events } : any) {
       setHidden(true);
     } else {
       setHidden(false);
-    }
+    } 
   });
 
   return (
