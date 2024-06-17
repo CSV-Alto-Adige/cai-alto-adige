@@ -15,7 +15,7 @@ const Banner = ({ announcements }: any) => {
     <Carousel className="py-4 bg-[#0e4d71] relative z-50"
     plugins={[
         Autoplay({
-          delay: 2000,
+          delay: 3000,
         }),
       ]}
       opts={{

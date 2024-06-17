@@ -362,13 +362,13 @@ export default function EventsTable2 ({activities}: any) {
                         onClear={() => onClear()}
                         onValueChange={onSearchChange}
                     />
-                    <div className="flex gap-3 items-center">
+                    <div className="flex gap-3 items-center justify-between w-full lg:justify-end">
                         {isFiltered && (
                             <Button color="secondary" startContent={<Undo className="h-4 w-4"/>} onPress={handleResetFilters} className="hidden lg:flex">
                                 Cancella filtri
                             </Button>
                         )}
-                        <DatePickerWithRange className="hidden lg:block" onDateRangeChange={handleDateRangeChange} />
+                        <DatePickerWithRange className="" onDateRangeChange={handleDateRangeChange} />
                         <Dropdown>
                           <DropdownTrigger className="hidden lg:flex">
                               <Button endContent={<ChevronDownIcon className="text-small" />} variant="flat">
@@ -390,7 +390,7 @@ export default function EventsTable2 ({activities}: any) {
                               ))}
                           </DropdownMenu>
                         </Dropdown>
-                        <Button color="primary" onPress={onOpen} endContent={<SlidersHorizontal className="h-3 w-3"/>} className="bg-[#0E4D71] text-sm h-9 hidden lg:flex">Filtri</Button>
+                        <Button color="primary" onPress={onOpen} endContent={<SlidersHorizontal className="h-3 w-3"/>} className="bg-[#0E4D71] text-sm h-9">Filtri</Button>
                         <Switch 
                           defaultSelected 
                           size="lg"
@@ -409,8 +409,7 @@ export default function EventsTable2 ({activities}: any) {
                     </div>
                     </div>
                     <div className="flex justify-between items-center px-6 lg:px-0">
-                    <span className="text-default-400 text-small">{filteredItems.length} Risultati</span>
-                    <Button color="primary" onPress={onOpen} endContent={<SlidersHorizontal className="h-3 w-3"/>} className="bg-[#0E4D71] text-sm h-9 lg:hidden">Filtri</Button>
+                    <span className="text-default-400 text-small hidden lg:block">{filteredItems.length} Risultati</span>
                     <label className="hidden lg:flex items-center text-default-400 text-small">
                         Risultati per pagina:
                         <select
@@ -586,7 +585,7 @@ export default function EventsTable2 ({activities}: any) {
               <ModalBody>
                 <Input
                     isClearable
-                    className="w-full sm:max-w-[44%] lg:hidden"
+                    className="w-full lg:hidden"
                     placeholder="Cerca attività ..."
                     startContent={<SearchIcon />}
                     value={filterValue}

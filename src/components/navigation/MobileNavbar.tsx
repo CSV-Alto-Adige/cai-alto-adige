@@ -1,3 +1,6 @@
+"use client"
+
+import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Menu } from "lucide-react"
@@ -17,9 +20,10 @@ import {
 import CAILogo from '@/assets/cai_logo.png'
 
 export function MobileNav({navigation}: any) {
+const [open, setOpen] = useState(false);
   return (
     <div className="block xl:hidden">
-        <Sheet>
+        <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
                 <Button variant="outline">
                     Menu
@@ -33,7 +37,7 @@ export function MobileNav({navigation}: any) {
                 </SheetHeader>
                 <nav className="grid py-8 px-4 items-center gap-y-12 mt-12">
                     {navigation.main.map((item: any) => (
-                        <Link key={item.name} href={item.href} className="leading-6 text-zinc-800 flex gap-x-4">
+                        <Link onClick={() => setOpen(false)} key={item.name} href={item.href} className="leading-6 text-zinc-800 flex gap-x-4">
                             {item.icon && <item.icon className="h-5 w-5 text-[#0E4D71]" />}
                             {item.name}
                         </Link>
