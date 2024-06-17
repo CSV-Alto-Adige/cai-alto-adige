@@ -577,7 +577,7 @@ export default function EventsTable2 ({activities}: any) {
         )
       }
       {bottomContent}
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement="center">
+      <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement="center" className="mx-12 lg:mx-0">
         <ModalContent>
           {(onClose) => (
             <>
