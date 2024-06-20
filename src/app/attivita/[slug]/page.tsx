@@ -96,7 +96,7 @@ export default async function DynamicPage({ params }: any) {
                   ) : "" }
                 {event.Contatto_riferimento ? (
                   <>
-                 <p className='text-gray-900 font-semibold'>Note:</p><div dangerouslySetInnerHTML={{ __html:event.Contatto_riferimento }}></div>
+                 <p className='text-gray-900 font-semibold'>Contatto di riferimento:</p><div dangerouslySetInnerHTML={{ __html:event.Contatto_riferimento }}></div>
                  </>
                 ) : "" }
                 {event.Note ? (
