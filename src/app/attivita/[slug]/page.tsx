@@ -169,7 +169,7 @@ export default async function DynamicPage({ params }: any) {
             {section.Email && (
               <Card className="mt-12">
                 <CardHeader>
-                  <CardTitle>Sezione di {section.Nome}</CardTitle>
+                  <CardTitle>Club Alpino Sezione di {section.Nome}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   {/* <img src={data.logo} alt={`${data.nome} logo`} /> */}
