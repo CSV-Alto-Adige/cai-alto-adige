@@ -60,7 +60,6 @@ export default function CategorySlider({ events }: CategorySliderProps) {
       }
       router.push(`?${params.toString()}`, { scroll: false });
     });
-    console.log("Selected category:", category);
   };
 
   return (

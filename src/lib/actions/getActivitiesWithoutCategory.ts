@@ -89,8 +89,6 @@ export async function getActivitiesWithoutCategory(
       });
     }
 
-    console.log(filterConditions);
-
     const response = await directus.request(
       readItems("activities", {
         filter: {

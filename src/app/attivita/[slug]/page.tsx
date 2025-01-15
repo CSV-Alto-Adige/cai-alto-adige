@@ -47,7 +47,6 @@ export default async function DynamicPage({ params }: any) {
   const event = events[0];
   const sections = await getSection(event.Sezione);
   const section = sections[0];
-  console.log(section);
 
   if (!event) {
     notFound();

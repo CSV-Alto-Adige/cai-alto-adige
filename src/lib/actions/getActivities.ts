@@ -98,8 +98,6 @@ export async function getActivities(
       });
     }
 
-    console.log(filterConditions);
-
     const response = await directus.request(
       readItems("activities", {
         filter: {
