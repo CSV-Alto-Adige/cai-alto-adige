@@ -112,6 +112,8 @@ export async function getActivities(
 
     const activities: Activity[] = response as Activity[];
 
+    // console.log("Filters:", activities.length);
+
     return activities;
   } catch (error) {
     console.error("Error fetching itineraries:", error);

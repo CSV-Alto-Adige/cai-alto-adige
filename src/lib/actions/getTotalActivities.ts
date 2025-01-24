@@ -99,7 +99,7 @@ export async function getTotalActivities(
         },
       })
     );
-
+    // console.log("Filters:", totalCount[0].count);
     return totalCount[0].count;
   } catch (error) {
     console.error("Error fetching itineraries:", error);

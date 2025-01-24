@@ -400,7 +400,7 @@ export function DataTable<TData, TValue>({
       <div className="mt-10">
         <PaginationWithLinks
           page={currentPage}
-          pageSize={12}
+          pageSize={10}
           totalCount={parseInt((totalActivities || "0").toString())}
         />
       </div>
