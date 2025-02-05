@@ -42,6 +42,7 @@ export default async function NewsPage({ params }: any) {
               href={`${directus.url}assets/${post.locandina}`}
               target="_blank"
               rel="noopener noreferrer"
+              className="w-full"
             >
               Locandina
             </Link>
