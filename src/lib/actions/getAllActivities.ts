@@ -27,7 +27,7 @@ export async function getAllActivities(): Promise<Activity[] | undefined> {
     );
 
     const activities: Activity[] = response as Activity[];
-
+    console.log(activities);
     return activities;
   } catch (error) {
     console.error("Error fetching itineraries:", error);

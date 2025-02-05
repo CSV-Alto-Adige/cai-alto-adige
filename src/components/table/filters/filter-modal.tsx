@@ -39,10 +39,12 @@ interface DifficultyLevel {
 
 export default function FilterModal({
   activities,
+  allActivites,
   isOpen,
   onOpenChange,
 }: {
   activities: Activity[];
+  allActivites: Activity[];
   isOpen: boolean;
   onOpenChange: (isOpen: boolean) => void;
 }) {
@@ -54,7 +56,7 @@ export default function FilterModal({
   const [elevationGainRange, setElevationGainRange] = useState([0, 3000]);
 
   const uniqueOrganizerSections: OrganizerSection[] = Array.from(
-    new Set(activities.map((event: any) => event.Sezione))
+    new Set(allActivites.map((event: any) => event.Sezione))
   ).map((name, index) => ({
     id: index + 1,
     name: String(name),

@@ -189,6 +189,7 @@ export function DataTable<TData, TValue>({
           </Button>
           <FilterModal
             activities={data as Activity[]}
+            allActivites={allData as Activity[]}
             isOpen={isOpen}
             onOpenChange={onOpenChange}
           />
@@ -220,6 +221,7 @@ export function DataTable<TData, TValue>({
         </Button>
         <FilterModal
           activities={data as Activity[]}
+          allActivites={allData as Activity[]}
           isOpen={isOpen}
           onOpenChange={onOpenChange}
         />
