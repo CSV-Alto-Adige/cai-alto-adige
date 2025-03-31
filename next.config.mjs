@@ -1,13 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    images: {
-        remotePatterns: [
-          {
-            protocol: 'http',
-            hostname: 'ec2-15-160-218-140.eu-south-1.compute.amazonaws.com'
-          },
-        ]
-      }
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "amm-caialtoadige.it",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
