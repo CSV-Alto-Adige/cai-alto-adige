@@ -1,0 +1,28 @@
+export type Activity = {
+  [key: string]: any;
+  id: string;
+  status: string;
+  Titolo: string;
+  Attivita: string;
+  Gruppo: string;
+  Data_inizio: string;
+  Data_fine: string;
+  Note: string;
+  Numero_massimo_partecipanti: number;
+  Iscrizioni_dal: string;
+  Quota_di_partenza: number;
+  Quota_massima_raggiunta: number;
+  Quota_di_arrivo: number;
+  Dislivello_in_salita: number;
+  Dislivello_in_discesa: number;
+  slug: string;
+  Immagine: string;
+  Locandina: string;
+  Tracciato_GPX: string;
+  Sezione: string;
+  Regione_Provincia: string;
+  Zona: string;
+  Durata_in_ore: string;
+  Difficolta: string;
+  Contatto_riferimento: string;
+};
