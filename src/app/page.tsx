@@ -1,11 +1,7 @@
-import directus from "@/lib/directus";
-import { readItems } from "@directus/sdk";
 import Hero from "@/components/hero";
 import { getActivities } from "@/lib/actions/getActivities";
 import { DataTable } from "@/components/table/data-table";
 import { columns } from "@/components/table/columns";
-import { getTotalActivities } from "@/lib/actions/getTotalActivities";
-import { getAllActivities } from "@/lib/actions/getAllActivities";
 import { getActivityFilters } from "@/lib/actions/getActivitiesFilters";
 
 export default async function Page(props: {
