@@ -79,6 +79,7 @@ export function DataTable<TData, TValue>({
   columns,
   data,
   totalActivities,
+  allData,
   filters,
 }: DataTableProps<TData, TValue>) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();

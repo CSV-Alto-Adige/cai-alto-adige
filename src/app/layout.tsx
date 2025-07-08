@@ -16,6 +16,8 @@ import { readItems } from "@directus/sdk";
 import Banner from "@/components/navigation/Banner";
 import { CSPostHogProvider } from "@/lib/providers/PostHogClientProvider";
 import CookieBanner from "@/components/cookie-banner/cookie-banner";
+import TanstackProvider from "@/lib/providers/tanstack-provider";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 export const metadata: Metadata = {
   title: "CAI - GRUPPO REGIONALE ALTO ADIGE",

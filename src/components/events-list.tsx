@@ -1,11 +1,10 @@
-import Hero from "@/components/hero";
 import { getActivities } from "@/lib/actions/getActivities";
-import { DataTable } from "@/components/table/data-table";
-import { columns } from "@/components/table/columns";
 import { getActivityFilters } from "@/lib/actions/getActivitiesFilters";
-import { Suspense } from "react";
+import React from "react";
+import { DataTable } from "./table/data-table";
+import { columns } from "./table/columns";
 
-export default async function Page(props: {
+export default async function EventsList(props: {
   searchParams?: Promise<{
     query?: string;
     page?: string;
@@ -60,22 +59,12 @@ export default async function Page(props: {
 
   const activities = activitiesResult?.activities ?? [];
   const totalActivities = activitiesResult?.total ?? 0;
-  console.log(activities);
-
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between pb-24">
-      <Hero />
-      {/* <EventsTable2 activities={activities} /> */}
-      {/* <div className="max-w-[85rem] mx-auto">
-        <Suspense fallback={<div className="text-center">Loading...</div>}>
-          <DataTable
-            columns={columns}
-            data={activities || []}
-            totalActivities={parseInt((totalActivities ?? "0").toString())}
-            filters={filterOptions}
-          />
-        </Suspense>
-      </div> */}
-    </main>
+    <DataTable
+      columns={columns}
+      data={activities || []}
+      totalActivities={parseInt((totalActivities ?? "0").toString())}
+      filters={filterOptions}
+    />
   );
 }
